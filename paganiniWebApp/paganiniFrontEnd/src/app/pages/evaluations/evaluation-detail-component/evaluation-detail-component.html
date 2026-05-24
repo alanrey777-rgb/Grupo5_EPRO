@@ -1,0 +1,50 @@
+<div class="min-h-screen bg-stone-50 p-8 flex items-center justify-center">
+  <div class="w-full max-w-2xl bg-white border border-stone-200 rounded-2xl shadow-sm p-10">
+
+    <div class="mb-10 flex items-center justify-between">
+      <div>
+        <h1 class="text-3xl font-black tracking-tight text-stone-800">
+          Detalle de Evaluación<span class="text-orange-600">.</span>
+        </h1>
+        <p class="text-sm text-stone-500 mt-1">Información completa de la evaluación</p>
+      </div>
+
+      <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-2xl">
+        <i class="bi bi-clipboard-check"></i>
+      </div>
+    </div>
+
+    <div *ngIf="evaluation" class="space-y-8">
+
+      <div>
+        <p class="text-xs uppercase tracking-wide text-stone-400 mb-2">Título</p>
+        <p class="text-lg font-semibold text-stone-800">{{ evaluation.title }}</p>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-wide text-stone-400 mb-2">Puntaje máximo</p>
+        <p class="text-lg font-semibold text-stone-800">{{ evaluation.maxScore }}</p>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-wide text-stone-400 mb-2">Fecha</p>
+        <p class="text-lg font-semibold text-stone-800">{{ evaluation.evaluationDate }}</p>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-wide text-stone-400 mb-2">Lección</p>
+        <p class="text-lg font-semibold text-stone-800">{{ evaluation.lesson?.title }}</p>
+      </div>
+
+      <div class="flex justify-end pt-6">
+        <button
+          (click)="goBack()"
+          class="px-5 py-3 rounded-lg border border-stone-300 text-stone-700 hover:bg-stone-100 transition">
+          Volver
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

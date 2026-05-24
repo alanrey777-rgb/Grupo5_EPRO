@@ -1,0 +1,87 @@
+<div class="min-h-screen bg-stone-50 p-8 flex items-center justify-center">
+  <div class="w-full max-w-2xl bg-white border border-stone-200 rounded-2xl shadow-sm p-10">
+
+    <div class="mb-10">
+      <h1 class="text-3xl font-black tracking-tight text-stone-800">
+        Evaluación<span class="text-orange-600">.</span>
+      </h1>
+      <p class="text-sm text-stone-500 mt-1">Crear o editar evaluación</p>
+    </div>
+
+    <div class="space-y-8">
+
+      <div>
+        <label class="block text-sm font-medium text-stone-700 mb-2">Título</label>
+        <input
+          type="text"
+          name="title"
+          required
+          #title="ngModel"
+          [(ngModel)]="evaluation.title"
+          class="w-full border-b border-stone-300 bg-transparent px-1 py-3 text-stone-800 focus:outline-none focus:border-orange-600 transition"
+          placeholder="Ejemplo: Evaluación de lectura musical"
+        />
+        <span *ngIf="title.invalid && title.touched" class="text-xs text-red-500 mt-2 block">Campo requerido</span>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-stone-700 mb-2">Puntaje máximo</label>
+        <input
+          type="number"
+          name="maxScore"
+          required
+          #maxScore="ngModel"
+          [(ngModel)]="evaluation.maxScore"
+          class="w-full border-b border-stone-300 bg-transparent px-1 py-3 text-stone-800 focus:outline-none focus:border-orange-600 transition"
+          placeholder="Ejemplo: 10"
+        />
+        <span *ngIf="maxScore.invalid && maxScore.touched" class="text-xs text-red-500 mt-2 block">Campo requerido</span>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-stone-700 mb-2">Fecha de evaluación</label>
+        <input
+          type="date"
+          name="evaluationDate"
+          required
+          #evaluationDate="ngModel"
+          [(ngModel)]="evaluation.evaluationDate"
+          class="w-full border-b border-stone-300 bg-transparent px-1 py-3 text-stone-800 focus:outline-none focus:border-orange-600 transition"
+        />
+        <span *ngIf="evaluationDate.invalid && evaluationDate.touched" class="text-xs text-red-500 mt-2 block">Campo requerido</span>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-stone-700 mb-2">Lección</label>
+        <select
+          name="lesson"
+          required
+          #lesson="ngModel"
+          [(ngModel)]="lessonId"
+          class="w-full border-b border-stone-300 bg-transparent px-1 py-3 text-stone-800 focus:outline-none focus:border-orange-600 transition">
+          <option [ngValue]="null">Selecciona una lección</option>
+          <option *ngFor="let lesson of lessons" [ngValue]="lesson.id">
+            {{ lesson.title }}
+          </option>
+        </select>
+        <span *ngIf="lesson.invalid && lesson.touched" class="text-xs text-red-500 mt-2 block">Campo requerido</span>
+      </div>
+
+      <div class="flex justify-end gap-4 pt-6">
+        <button
+          (click)="cancel()"
+          class="px-5 py-3 rounded-lg border border-stone-300 text-stone-700 hover:bg-stone-100 transition">
+          Cancelar
+        </button>
+
+        <button
+          (click)="saveEvaluation()"
+          class="px-5 py-3 rounded-lg bg-orange-600 hover:bg-orange-500 text-white transition flex items-center gap-2">
+          <i class="bi bi-floppy"></i>
+          Guardar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

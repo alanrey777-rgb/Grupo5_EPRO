@@ -1,0 +1,20 @@
+<div class="min-h-screen flex flex-col bg-stone-50 text-stone-800 antialiased">
+  
+  <!-- LLAMADA AL COMPONENTE HEADER -->
+  <app-header></app-header>
+
+  <!-- CONTENEDOR INFERIOR -->
+  <div class="flex flex-1 h-[calc(100vh-4rem)] overflow-hidden">
+    
+    <!-- LLAMADA AL COMPONENTE SIDEBAR -->
+    <app-sidebar></app-sidebar>
+
+    <!-- ÁREA DE RENDERIZADO DINÁMICO -->
+    <main class="flex-1 overflow-y-auto p-8 bg-stone-50">
+      <div class="max-w-7xl mx-auto">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+
+  </div>
+</div>

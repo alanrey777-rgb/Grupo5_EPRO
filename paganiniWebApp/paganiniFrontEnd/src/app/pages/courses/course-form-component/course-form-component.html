@@ -1,0 +1,146 @@
+<div class="min-h-screen bg-stone-50 p-8 flex items-center justify-center">
+
+  <div class="w-full max-w-2xl bg-white border border-stone-200 rounded-2xl shadow-sm p-10">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <h1 class="text-3xl font-black tracking-tight text-stone-800">
+        Curso<span class="text-orange-600">.</span>
+      </h1>
+
+      <p class="text-sm text-stone-500 mt-1">
+        Crear o editar curso
+      </p>
+    </div>
+
+    <!-- Formulario -->
+    <div class="space-y-8">
+
+      <!-- Nombre -->
+      <div>
+
+        <label class="block text-sm font-medium text-stone-700 mb-2">
+          Nombre del Curso
+        </label>
+
+        <input
+          type="text"
+          name="name"
+          required
+          #name="ngModel"
+          [(ngModel)]="course.name"
+          class="w-full border-b border-stone-300 bg-transparent px-1 py-3 text-stone-800 focus:outline-none focus:border-orange-600 transition"
+          placeholder="Ejemplo: Piano Básico"
+        />
+
+        <span
+          *ngIf="name.invalid && name.touched"
+          class="text-xs text-red-500 mt-2 block">
+
+          Campo requerido
+        </span>
+
+      </div>
+
+      <!-- Nivel -->
+      <div>
+
+        <label class="block text-sm font-medium text-stone-700 mb-2">
+          Nivel
+        </label>
+
+        <input
+          type="text"
+          name="level"
+          required
+          #level="ngModel"
+          [(ngModel)]="course.level"
+          class="w-full border-b border-stone-300 bg-transparent px-1 py-3 text-stone-800 focus:outline-none focus:border-orange-600 transition"
+          placeholder="Beginner / Intermediate"
+        />
+
+        <span
+          *ngIf="level.invalid && level.touched"
+          class="text-xs text-red-500 mt-2 block">
+
+          Campo requerido
+        </span>
+
+      </div>
+
+      <!-- Docente -->
+      <div>
+
+        <label class="block text-sm font-medium text-stone-700 mb-2">
+          Docente
+        </label>
+
+        <select
+          name="teacher"
+          required
+          #teacher="ngModel"
+          [(ngModel)]="teacherId"
+          class="w-full border-b border-stone-300 bg-transparent px-1 py-3 text-stone-800 focus:outline-none focus:border-orange-600 transition">
+
+          <option [ngValue]="null">
+            Selecciona un docente
+          </option>
+
+          <option
+            *ngFor="let teacher of teachers"
+            [ngValue]="teacher.id">
+
+            {{ teacher.user.fullName }}
+          </option>
+
+        </select>
+
+        <span
+          *ngIf="teacher.invalid && teacher.touched"
+          class="text-xs text-red-500 mt-2 block">
+
+          Campo requerido
+        </span>
+
+      </div>
+
+      <!-- Estado -->
+      <div class="flex items-center gap-3">
+
+        <input
+          type="checkbox"
+          [(ngModel)]="course.active"
+          class="w-4 h-4 accent-orange-600"
+        />
+
+        <label class="text-sm text-stone-700">
+          Curso activo
+        </label>
+
+      </div>
+
+      <!-- Botones -->
+      <div class="flex justify-end gap-4 pt-6">
+
+        <button
+          (click)="cancel()"
+          class="px-5 py-3 rounded-lg border border-stone-300 text-stone-700 hover:bg-stone-100 transition">
+
+          Cancelar
+        </button>
+
+        <button
+          (click)="saveCourse()"
+          class="px-5 py-3 rounded-lg bg-orange-600 hover:bg-orange-500 text-white transition flex items-center gap-2">
+
+          <i class="bi bi-floppy"></i>
+          Guardar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

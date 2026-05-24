@@ -1,0 +1,49 @@
+<!-- Contenedor principal con fondo gris muy suave y limpio -->
+<div class="min-h-screen flex items-center justify-center bg-stone-50 p-6">
+  
+  <!-- Tarjeta blanca pura con bordes redondeados y sombra sutil -->
+  <div class="w-full max-w-sm bg-white rounded-xl border border-stone-200/60 p-10 shadow-sm">
+    
+    <!-- Header: Título en negrita intensa con un punto de color de acento -->
+    <div class="mb-12 text-center">
+      <h1 class="text-2xl font-black tracking-tight text-stone-800 antialiased inline-flex items-center justify-center">
+        Paganini LMS<span class="text-orange-600 ml-0.5 text-3xl leading-none">.</span>
+      </h1>
+    </div>
+
+    <!-- Controles del formulario -->
+    <div class="space-y-7">
+      
+      <!-- Username -->
+      <div class="relative">
+        <input
+          class="w-full bg-transparent text-sm text-stone-800 border-b border-stone-200 px-1 py-2 placeholder:text-stone-400 focus:outline-none focus:border-orange-600 transition-colors duration-300"
+          type="text"
+          placeholder="username"
+          [(ngModel)]="username"
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="relative">
+        <input
+          class="w-full bg-transparent text-sm text-stone-800 border-b border-stone-200 px-1 py-2 placeholder:text-stone-400 focus:outline-none focus:border-orange-600 transition-colors duration-300"
+          type="password"
+          placeholder="password"
+          [(ngModel)]="password"
+        />
+      </div>
+      
+    </div>
+
+    <!-- Botón de acción: El único elemento con color intenso -->
+    <div class="mt-12">
+      <button
+        class="w-full bg-orange-600 text-white text-sm font-medium py-3 rounded-lg hover:bg-orange-500 active:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-colors duration-200"
+        (click)="login()">
+        Login
+      </button>
+    </div>
+    
+  </div>
+</div>
